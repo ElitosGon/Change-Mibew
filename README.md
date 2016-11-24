@@ -29,7 +29,6 @@ This repository contains the modified files of the Mibew core, in order to use t
 
 1. libs/classes/Mibew/Thread.php
    Add the following lines as appropriate:
-   ```html
    <?php 
 	/*
 	 * This file is a part of Mibew Messenger.
@@ -147,10 +146,8 @@ This repository contains the modified files of the Mibew core, in order to use t
 
   	...
 
-    ```
 2. libs/classes/Mibew/RequestProcessor/UserProcessor.php
    Add the following lines as appropriate:
-   ```html
    <?php
     ...
     ...
@@ -200,10 +197,11 @@ This repository contains the modified files of the Mibew core, in order to use t
 
     ...
 
-   ```
 
-## Handlebars files (php views files)
-   Review files in repository
+## Handlebars files
+
+   Review files in repository:
+
 1. styles/pages/default/templates_src/client_side/users/threads_collection.handlebars
 2. styles/pages/default/templates_src/client_side/users/queued_thread.handlebars
 3. styles/pages/default/templates_src/server_side/users.handlebars
