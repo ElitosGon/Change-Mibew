@@ -29,6 +29,7 @@ This repository contains the modified files of the Mibew core, in order to use t
 
 1. libs/classes/Mibew/Thread.php
    Add the following lines as appropriate:
+   ```
    <?php 
 	/*
 	 * This file is a part of Mibew Messenger.
@@ -42,7 +43,6 @@ This repository contains the modified files of the Mibew core, in order to use t
 	     */
 	    const STATE_QUEUE = 0;
 	    ...
-   		<div style="color:green">
 	     /**
 	     * Content of ID "Conversation-id" bot conversation id.
 	     * @var string
@@ -54,34 +54,18 @@ This repository contains the modified files of the Mibew core, in order to use t
 	     * @var string
 	     */
     	public $lastBotMessage;
-    	
-    	</div>
 	    /**
 	     * Create thread object from database info.
 	     ...
 	     
-    /**
-     * Class constructor.
-     */
     public function __construct()
     {
         // Set the defaults
         ...
-        <div style="color:green">
         $this->conversationId = "0";
         $this->lastBotMessage = "0";
-        </div>
     }
 
-    /**
-     * Save the thread to the database
-     *
-     * Triggers {@link \Mibew\EventDispatcher\Events::THREAD_UPDATE} and
-     * {@link \Mibew\EventDispatcher\Events::THREAD_CREATE} events.
-     *
-     * @param boolean $update_revision Indicates if last modified time and last
-     *   revision should be updated.
-     */
     public function save($update_revision = true)
     {
         ...
@@ -91,19 +75,15 @@ This repository contains the modified files of the Mibew core, in order to use t
             $db->query(
                 ('INSERT INTO {thread} ('
                    ...
-                   <div style="color:green">
                     . 'shownmessageid, useragent, messagecount, groupid, conversationid, lastbotmessage'
-                   </div>
                 . ') VALUES ('
                    ... 
                     . ':shown_message_id, :user_agent, :message_count, :group_id , :conversation_id , :last_bot_message'
                 . ')'),
                 array(
                     ...
-                    <div style="color:green">
                     ':conversation_id' => $this->conversationId,
                     ':last_bot_message' => $this->lastBotMessage,
-                    </div>
                 )
             );
             
@@ -112,50 +92,37 @@ This repository contains the modified files of the Mibew core, in order to use t
             $db->query(
                 ('UPDATE {thread} SET '
                     ...
-                    <div style="color:green">
                     . 'conversationid = :conversation_id, '
                     . 'lastbotmessage = :last_bot_message '
-                    </div>
                 . 'WHERE threadid = :thread_id'),
                 array(
                     ...
-                    <div style="color:green">
                     ':conversation_id' => $this->conversationId,
                     ':last_bot_message' => $this->lastBotMessage,
-                    </div>
                 )
             );
 
             ...
     ...
 
-    /**
-     * Sets thread's fields according to the fields from Database.
-     *
-     * @param array $db_fields Associative array of database fields which keys
-     *   are fields names and the values are fields values.
-     */
     protected function populateFromDbFields($db_fields)
     {
         ...
-        <div style="color:green">
         $this->conversationId = $db_fields['conversationid'];
         $this->lastBotMessage = $db_fields['lastbotmessage'];
-        </div>
     }
 
   	...
-
+    ```
 2. libs/classes/Mibew/RequestProcessor/UserProcessor.php
    Add the following lines as appropriate:
+   ```
    <?php
     ...
     ...
     protected function apiUpdateThreads($args)
     {
        ....
-
-       		<div style="color:green">
             // Code for state bot
             $threadState = null;
             $threadMessage = null;
@@ -179,14 +146,10 @@ This repository contains the modified files of the Mibew core, in order to use t
                 $threadMessage = "Bot atendiendo";
             }
             // Code for state bot
-             </div> 
-
             $threads[] = array(
                 ...
-                <div style="color:green">
                 'threadState' => $threadState,
                 'threadMessage' => $threadMessage,
-                </div>
             );
 
             ...
@@ -196,7 +159,7 @@ This repository contains the modified files of the Mibew core, in order to use t
     }
 
     ...
-
+   ```
 
 ## Handlebars files
 
