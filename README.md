@@ -173,7 +173,7 @@ This repository contains the modified files of the Mibew core, in order to use t
 
 ## Build from sources
 
-There are several actions one should do before use the latest version of Mibew from the repository:
+There are several actions one should do before use the latest version of [Mibew](https://github.com/Mibew/mibew) from the repository:
 
 1. Obtain a copy of the repository using `git clone`, download button, or another way.
 2. Install [node.js](http://nodejs.org/) and [npm](https://www.npmjs.org/).
